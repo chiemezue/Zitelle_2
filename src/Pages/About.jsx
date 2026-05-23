@@ -1,5 +1,7 @@
 import PageHero from "../Components/PageHero";
 import AboutIntro from "../Components/AboutIntro";
+import WhyChooseUs from "../Components/WhyChooseUs.jsx";
+import TeamSection from "./TeamSection.jsx";
 const About = () => {
   return (
     <>
@@ -16,6 +18,8 @@ const About = () => {
         }
       />
       <AboutIntro />
+      <WhyChooseUs />
+      <TeamSection />
     </>
   );
 };

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-
+import { Link } from "react-router-dom";
 import TypingText from "./TypingText";
 
 const AboutSection = () => {
@@ -58,8 +58,10 @@ const AboutSection = () => {
         </p>
 
         <button className="about__btn">
-          About Us
-          <span>→</span>
+          <Link to={"/about"}>
+            About Us
+            <span>→</span>
+          </Link>
         </button>
       </div>
 

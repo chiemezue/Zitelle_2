@@ -1067,7 +1067,7 @@
 .choose__title {
   font-family: var(--font-heading);
 
-  @apply text-[clamp(34px,4vw,58px)]
+  @apply text-[clamp(26px,4vw,48px)]
   leading-[1.05]
   tracking-[-2px]
   font-extrabold
@@ -1119,7 +1119,7 @@
   items-center
   justify-between
   text-left
-  py-7
+  py-3
   bg-transparent
   border-none
   cursor-pointer;
@@ -1421,7 +1421,7 @@
 .footer {
   @apply relative
   overflow-hidden
-  p-12 mt-5;
+  p-8 mt-5;
 }
 
 /* ───────── BACKGROUND IMAGE ───────── */
@@ -1440,8 +1440,6 @@
   @apply w-[180px]
   object-contain;
 }
-/* REMOVE OLD BACKGROUND */
-/* NOW USING reusable .premium-dark-bg */
 
 /* ───────── MAIN CONTAINER ───────── */
 
@@ -1451,7 +1449,7 @@
   grid
   grid-cols-4
   gap-14
-  pb-16;
+  pb-8;
 }
 
 /* ───────── BRAND ───────── */
@@ -1821,5 +1819,233 @@
 
   .about-intro__content {
     @apply gap-16;
+  }
+}
+
+/* ───────────────── TEAM ───────────────── */
+
+.team {
+  @apply py-24
+  bg-white
+  overflow-hidden;
+}
+
+/* TOP */
+
+.team__top {
+  @apply flex
+  flex-col
+  items-center
+  text-center
+  mb-14
+  px-6;
+}
+
+.team__title {
+  font-family: var(--font-heading);
+
+  @apply text-[clamp(24px,5vw,43px)]
+  font-black
+  leading-[1]
+  tracking-[-2px]
+  text-black
+  mt-5;
+}
+
+.team__title span {
+  @apply text-[var(--color-primary)];
+}
+
+/* WRAPPER */
+
+.team__wrapper {
+  @apply relative;
+}
+
+/* SLIDER */
+
+.team__slider {
+  @apply flex
+  gap-5
+  overflow-x-auto
+  scroll-smooth
+  px-6 lg:px-16;
+
+  scrollbar-width: none;
+
+  scroll-behavior: smooth;
+}
+
+.team__slider::-webkit-scrollbar {
+  display: none;
+}
+
+/* CARD */
+
+.team__card {
+  @apply relative
+  shrink-0
+  overflow-hidden;
+
+  width: 340px;
+  height: 520px;
+}
+
+/* IMAGE */
+
+.team__image {
+  @apply w-full
+  h-full
+  object-cover;
+
+  transition:
+    transform 0.7s ease,
+    filter 0.5s ease;
+}
+
+/* OVERLAY */
+
+.team__overlay {
+  @apply absolute
+  inset-0
+  flex
+  items-end
+  p-8;
+
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.82),
+    rgba(0, 0, 0, 0.18),
+    transparent
+  );
+
+  opacity: 0;
+
+  transition: opacity 0.4s ease;
+}
+
+/* INFO */
+
+.team__info {
+  transform: translateY(24px);
+
+  transition: transform 0.5s ease;
+}
+
+.team__info h3 {
+  font-family: var(--font-heading);
+
+  @apply text-white
+  text-[30px]
+  font-bold
+  mb-2;
+}
+
+.team__info p {
+  font-family: var(--font-body);
+
+  @apply text-white/80
+  text-[15px];
+}
+
+/* HOVER */
+
+.team__card:hover .team__overlay {
+  opacity: 1;
+}
+
+.team__card:hover .team__info {
+  transform: translateY(0);
+}
+
+.team__card:hover .team__image {
+  transform: scale(1.08);
+
+  filter: brightness(0.7);
+}
+
+/* ARROWS */
+
+.team__arrow {
+  @apply absolute
+  top-1/2
+  z-20
+  w-14
+  h-14
+  rounded-full
+  text-white
+  text-[26px]
+  flex
+  items-center
+  justify-center
+  cursor-pointer;
+
+  transform: translateY(-50%);
+
+  background: rgba(0, 0, 0, 0.35);
+
+  backdrop-filter: blur(10px);
+}
+
+.team__arrow:hover {
+  background: rgba(0, 0, 0, 0.55);
+}
+
+.team__arrow--left {
+  left: 20px;
+}
+
+.team__arrow--right {
+  right: 20px;
+}
+
+/* ───────────────── TABLET ───────────────── */
+
+@media (max-width: 1024px) {
+  .team__card {
+    width: 300px;
+    height: 460px;
+  }
+
+  .team__slider {
+    @apply px-6;
+  }
+}
+
+/* ───────────────── MOBILE ───────────────── */
+
+@media (max-width: 768px) {
+  .team {
+    @apply py-16;
+  }
+
+  .team__top {
+    @apply mb-10;
+  }
+
+  .team__title {
+    @apply tracking-[-1px];
+  }
+
+  .team__slider {
+    @apply gap-4
+    px-5;
+  }
+
+  .team__card {
+    width: 82vw;
+    height: 420px;
+  }
+
+  .team__overlay {
+    opacity: 1;
+  }
+
+  .team__info {
+    transform: translateY(0);
+  }
+
+  .team__arrow {
+    @apply hidden;
   }
 }
