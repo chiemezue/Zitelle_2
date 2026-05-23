@@ -8,7 +8,7 @@ const BusinessSection = () => {
       description:
         "Premium quality soaps carefully produced for everyday hygiene and household use across Nigeria.",
       image:
-        "https://images.unsplash.com/photo-1607006483225-2f96f53f6d79?q=80&w=1600&auto=format&fit=crop",
+        "https://images.unsplash.com/photo-1600857544200-b2f666a9a2ec?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8c29hcHxlbnwwfHwwfHx8MA%3D%3D",
     },
 
     {
