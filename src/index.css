@@ -1661,3 +1661,165 @@
     py-5;
   }
 }
+
+/* ── PAGE HERO ───────────────────────────── */
+.page-hero {
+  @apply relative
+  h-[72vh]
+  min-h-[520px]
+  overflow-hidden
+  flex items-center;
+}
+
+/* ── Background Image ───────────────────── */
+.page-hero__bg {
+  @apply absolute inset-0
+  w-full h-full
+  object-cover;
+}
+
+/* ── Dark Overlay ───────────────────────── */
+.page-hero__overlay {
+  @apply absolute inset-0;
+
+  background: linear-gradient(
+    to right,
+    rgba(0, 0, 0, 0.88) 0%,
+    rgba(0, 0, 0, 0.72) 35%,
+    rgba(0, 0, 0, 0.55) 65%,
+    rgba(0, 0, 0, 0.42) 100%
+  );
+}
+.page-hero__title {
+  font-family: var(--font-heading);
+
+  @apply text-[clamp(34px,5.2vw,70px)]
+    
+    text-white
+    leading-[1.1]
+    max-w-[840px]
+    mb-5
+    tracking-[-1px];
+}
+
+/* ── Content Wrapper ────────────────────── */
+.page-hero__content {
+  @apply relative z-10
+  w-full
+  mx-auto
+  px-6 md:px-10 lg:px-16;
+}
+
+/* ───────────────── PAGE HERO CONTENT ───────────────── */
+/* ── Breadcrumb ────────────────────────── */
+
+.page-hero__breadcrumb {
+  font-family: var(--font-body);
+
+  @apply flex items-center
+  gap-2
+  text-[15px]
+  font-medium;
+}
+
+/* WHITE TEXT */
+
+.page-hero__crumb {
+  @apply text-white/70
+  transition-colors duration-300;
+}
+
+/* GOLD ACTIVE TEXT */
+
+.page-hero__crumb--active {
+  @apply text-[var(--color-primary)]
+  font-semibold;
+}
+/* ───────────────── ABOUT INTRO ───────────────── */
+
+.about-intro {
+  @apply grid
+  grid-cols-1 lg:grid-cols-[1fr_750px]
+  px-6 lg:px-6
+  pt-12
+  pb-6
+  bg-white;
+}
+
+/* LEFT SIDE */
+
+.about-intro__content {
+  @apply flex
+  flex-col
+  gap-24;
+}
+
+/* EACH BLOCK */
+
+.about-block {
+  @apply flex
+  flex-col
+  justify-center
+  min-h-[80vh];
+}
+
+/* DESKTOP STICKY IMAGE */
+
+.about-intro__sticky {
+  @apply hidden lg:block
+  sticky
+  top-24
+  self-start
+  h-[500px];
+}
+
+.about-intro__image {
+  @apply w-[50rem]
+  h-[32rem]
+  object-cover;
+
+  transition:
+    opacity 0.45s ease,
+    transform 0.45s ease;
+}
+
+/* MOBILE IMAGE */
+
+.about-block__mobile-image {
+  @apply mt-8
+  block
+  lg:hidden
+  overflow-hidden;
+}
+
+.about-block__mobile-image img {
+  @apply w-full
+  h-[320px]
+  object-cover;
+}
+
+/* ───────────────── RESPONSIVE ───────────────── */
+
+@media (max-width: 1024px) {
+  .about-intro {
+    @apply grid-cols-1
+    gap-12
+    px-6
+    py-20;
+  }
+
+  .about-block {
+    @apply min-h-fit;
+  }
+}
+
+@media (max-width: 768px) {
+  .about-intro {
+    @apply px-5
+    py-16;
+  }
+
+  .about-intro__content {
+    @apply gap-16;
+  }
+}
