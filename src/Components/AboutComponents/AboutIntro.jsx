@@ -1,51 +1,8 @@
 import { useEffect, useRef, useState } from "react";
 import TypingText from "../TypingText";
 
-const sections = [
-  {
-    id: 1,
-
-    label: "Who We Are",
-
-    title: "Built Around Everyday Essentials",
-
-    text: `Zitelle Group is behind the essentials that keep life moving — made with care, produced to standard, and supplied with consistency across Nigeria.`,
-
-    extra: `Across homes and industries, our products are created to serve everyday needs with reliability and trust.`,
-
-    image: "/zitelle pictures/zitelle trucks 2.jpg",
-  },
-
-  {
-    id: 2,
-
-    label: "What We Do",
-
-    title: "Manufacturing With Care And Precision",
-
-    text: `From manufacturing to packaging and dependable delivery, we sweat the details so you don’t have to.`,
-
-    extra: `Every process is handled with focus, consistency and operational excellence to maintain the standards we stand for.`,
-
-    image: "/zitelle pictures/people in factory.jpg",
-  },
-
-  {
-    id: 3,
-
-    label: "Our Promise",
-
-    title: "Quality You Can Always Trust",
-
-    text: `Whether it’s for your household or your business, you can count on quality that shows up the same way every time.`,
-
-    extra: `From our hearts to your home, we deliver products built on trust, long-term value and dependable performance.`,
-
-    image: "/zitelle pictures/office.jpg",
-  },
-];
-const AboutIntro = () => {
-  const [activeImage, setActiveImage] = useState(sections[0].image);
+const AboutIntro = ({ sections }) => {
+  const [activeImage, setActiveImage] = useState(sections[0]?.image);
 
   const sectionRefs = useRef([]);
 
@@ -72,11 +29,12 @@ const AboutIntro = () => {
     return () => {
       observers.forEach((observer) => observer.disconnect());
     };
-  }, []);
+  }, [sections]);
 
   return (
     <section className="about-intro">
       {/* LEFT CONTENT */}
+
       <div className="about-intro__content">
         {sections.map((section, index) => (
           <div
@@ -85,6 +43,7 @@ const AboutIntro = () => {
             className="about-block"
           >
             {/* LABEL */}
+
             <div className="about__label">
               <span>{section.label}</span>
 
@@ -92,6 +51,7 @@ const AboutIntro = () => {
             </div>
 
             {/* TITLE */}
+
             {index === 0 ? (
               <TypingText
                 text={section.title}
@@ -103,6 +63,7 @@ const AboutIntro = () => {
             )}
 
             {/* TEXT */}
+
             <p className="about__text">{section.text}</p>
 
             <div className="about__text">
@@ -110,6 +71,7 @@ const AboutIntro = () => {
             </div>
 
             {/* MOBILE IMAGE */}
+
             <div className="about-block__mobile-image">
               <img src={section.image} alt={section.title} />
             </div>
@@ -118,6 +80,7 @@ const AboutIntro = () => {
       </div>
 
       {/* DESKTOP STICKY IMAGE */}
+
       <div className="about-intro__sticky">
         <img
           key={activeImage}

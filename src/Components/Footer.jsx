@@ -73,7 +73,7 @@ const Footer = () => {
             <li>Oil Refinery</li>
 
             <li>Plywood</li>
-
+            <li>Packaging</li>
             <li>Soap Manufacturing</li>
           </ul>
         </div>
@@ -86,19 +86,22 @@ const Footer = () => {
           <div className="footer__contact-item">
             <FaMapMarkerAlt />
 
-            <span>No 20 Awka Road, Anambra</span>
+            <span> Amansea, By Ebenebe Road, Awka North,Anambra State.</span>
           </div>
 
           <div className="footer__contact-item">
             <HiMail />
-
-            <span>ohiacidozie006@gmail.com</span>
+            <span>
+              info@zitellegroup.com
+              <br />
+              joe4k2010@gmail.com
+            </span>
           </div>
 
           <div className="footer__contact-item">
             <HiPhone />
 
-            <span>+234 9137 587 836</span>
+            <span>+234 814 783 9951</span>
           </div>
         </div>
       </div>

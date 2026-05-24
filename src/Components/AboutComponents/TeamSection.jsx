@@ -2,31 +2,30 @@ import { useRef } from "react";
 
 const teamMembers = [
   {
-    name: "Michael Stone",
-    role: "Group Chairman",
+    name: "Chimfurunanya Frances",
+    role: "Executive Director",
+    image:
+      "https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=1200&auto=format&fit=crop",
+  },
+  {
+    name: "Emmanuel Edobor",
+    role: "Financial Controller",
     image:
       "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=1200&auto=format&fit=crop",
   },
 
   {
-    name: "Daniel Brooks",
-    role: "Operations Director",
+    name: "Nonso Onyeoka",
+    role: "Head Internal Audit",
     image:
       "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?q=80&w=1200&auto=format&fit=crop",
   },
 
   {
-    name: "David Cole",
-    role: "Production Manager",
+    name: "Chimfurunanya Frances",
+    role: "Executive Director",
     image:
       "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=1200&auto=format&fit=crop",
-  },
-
-  {
-    name: "Sophia Lee",
-    role: "Finance Executive",
-    image:
-      "https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=1200&auto=format&fit=crop",
   },
 
   {
