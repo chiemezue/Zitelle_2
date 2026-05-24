@@ -1,10 +1,9 @@
 import React from "react";
-
-import Hero from "../Components/Hero";
-import AboutSection from "../Components/AboutSection";
-import BusinessSection from "../Components/BusinessSection";
-import WhyChooseUs from "../Components/WhyChooseUs";
-import CareerSection from "../Components/CareerSection";
+import Hero from "../Components/HomeComponents/Hero";
+import AboutSection from "../Components/AboutComponents/AboutSection";
+import BusinessSection from "../Components/HomeComponents/BusinessSection";
+import WhyChooseUs from "../Components/HomeComponents/WhyChooseUs";
+import CareerSection from "../Components/HomeComponents/CareerSection";
 
 const Home = () => {
   return (

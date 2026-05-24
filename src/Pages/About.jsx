@@ -1,6 +1,6 @@
-import PageHero from "../Components/PageHero";
-import AboutIntro from "../Components/AboutIntro";
-import WhyChooseUs from "../Components/WhyChooseUs.jsx";
+import PageHero from "../Components/AboutComponents/PageHero.jsx";
+import AboutIntro from "../Components/AboutComponents/AboutIntro.jsx";
+import WhyChooseUs from "../Components/HomeComponents/WhyChooseUs.jsx";
 import TeamSection from "./TeamSection.jsx";
 const About = () => {
   return (
@@ -8,7 +8,7 @@ const About = () => {
       <PageHero
         title="About"
         highlight="Us"
-        image="https://images.unsplash.com/photo-1565514020179-026b92b84bb6?q=80&w=1800&auto=format&fit=crop"
+        image="/zitelle pictures/environment.png"
         breadcrumb={
           <>
             <span className="page-hero__crumb">Home /</span>
