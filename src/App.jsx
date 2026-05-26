@@ -7,6 +7,7 @@ import ScrollToTop from "./Components/ScrollToTop";
 import Home from "./Pages/Home";
 import About from "./Pages/About";
 import Careers from "./Pages/Career";
+import CareerForm from "./Components/CareerComponents/CareerForm";
 
 const App = () => {
   return (
@@ -19,6 +20,7 @@ const App = () => {
           <Route path="/about" element={<About />} />
 
           <Route path="/careers" element={<Careers />} />
+          <Route path="/career/apply" element={<CareerForm />} />
         </Route>
       </Routes>
     </BrowserRouter>

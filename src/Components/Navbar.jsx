@@ -19,7 +19,7 @@ const services = [
 const navLinks = [
   { label: "Home", path: "/" },
   { label: "About", path: "/about" },
-
+  { label: "Why Us", path: "/why_us" },
   { label: "Careers", path: "/careers" },
 ];
 
@@ -71,6 +71,9 @@ const Navbar = () => {
 
           <li>
             <NavLink to="/about">About</NavLink>
+          </li>
+          <li>
+            <NavLink to="/why_us">Why Us</NavLink>
           </li>
 
           {/* SERVICES DROPDOWN */}
