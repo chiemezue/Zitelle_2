@@ -114,7 +114,7 @@ const Navbar = () => {
 
         {/* ───────── CTA ───────── */}
 
-        <a href="#contact" className="navbar__cta">
+        <NavLink to="/contact" className="navbar__cta">
           Contact Us
           <svg width="15" height="15" viewBox="0 0 15 15" fill="none">
             <path
@@ -125,7 +125,7 @@ const Navbar = () => {
               strokeLinejoin="round"
             />
           </svg>
-        </a>
+        </NavLink>
 
         {/* ───────── HAMBURGER ───────── */}
 
@@ -192,13 +192,13 @@ const Navbar = () => {
 
         {/* ───────── CTA ───────── */}
 
-        <a
-          href="#contact"
+        <NavLink
+          to="/contact"
           className="mobile-menu__cta"
           onClick={() => setMenuOpen(false)}
         >
           Contact Us →
-        </a>
+        </NavLink>
       </div>
     </>
   );

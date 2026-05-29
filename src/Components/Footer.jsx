@@ -1,4 +1,6 @@
 import React from "react";
+import { Link } from "react-router-dom";
+
 import {
   FaFacebookF,
   FaInstagram,
@@ -6,21 +8,19 @@ import {
   FaMapMarkerAlt,
   FaTwitter,
 } from "react-icons/fa";
-import logo from "/images/logo2.png";
 
 import { HiMail, HiPhone } from "react-icons/hi";
+
+import logo from "/images/logo2.png";
+
 const Footer = () => {
   return (
     <footer className="footer premium-dark-bg">
-      {/* ───────── BACKGROUND IMAGE ───────── */}
-
-      {/* ───────── CONTENT ───────── */}
-
       <div className="footer__container">
         {/* ───────── BRAND ───────── */}
 
         <div className="footer__brand">
-          <img src={logo} />
+          <img src={logo} alt="Zitelle Group" />
 
           <p className="footer__description">
             Responsible manufacturing isn't just a promise — it's every decision
@@ -30,19 +30,31 @@ const Footer = () => {
           {/* ───────── SOCIALS ───────── */}
 
           <div className="footer__socials">
-            <a href="/">
+            <a
+              href="https://facebook.com"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               <FaFacebookF />
             </a>
 
-            <a href="/">
+            <a
+              href="https://instagram.com"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               <FaInstagram />
             </a>
 
-            <a href="/">
+            <a href="https://x.com" target="_blank" rel="noopener noreferrer">
               <FaTwitter />
             </a>
 
-            <a href="/">
+            <a
+              href="https://tiktok.com"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               <FaTiktok />
             </a>
           </div>
@@ -54,26 +66,34 @@ const Footer = () => {
           <h3>Links</h3>
 
           <ul>
-            <li>About</li>
+            <li>
+              <Link to="/about">About</Link>
+            </li>
+            <li>
+              <Link to="/why_us">Why us</Link>
+            </li>
+            <li>
+              <Link to="/contact">Contact Us</Link>
+            </li>
 
-            <li>Why Us</li>
-
-            <li>Contact Us</li>
-
-            <li>Careers</li>
+            <li>
+              <Link to="/careers">Careers</Link>
+            </li>
           </ul>
         </div>
 
         {/* ───────── SERVICES ───────── */}
 
         <div className="footer__services">
-          <h3>Our Service</h3>
+          <h3>Our Services</h3>
 
           <ul>
             <li>Oil Refinery</li>
 
             <li>Plywood</li>
+
             <li>Packaging</li>
+
             <li>Soap Manufacturing</li>
           </ul>
         </div>
@@ -86,11 +106,12 @@ const Footer = () => {
           <div className="footer__contact-item">
             <FaMapMarkerAlt />
 
-            <span> Amansea, By Ebenebe Road, Awka North,Anambra State.</span>
+            <span>Amansea, By Ebenebe Road, Awka North, Anambra State.</span>
           </div>
 
           <div className="footer__contact-item">
             <HiMail />
+
             <span>
               info@zitellegroup.com
               <br />

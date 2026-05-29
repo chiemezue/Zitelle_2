@@ -21,14 +21,14 @@ const BusinessSection = () => {
       title: "Packaging Solutions",
       description:
         "Modern packaging systems designed to preserve product quality and support distribution needs.",
-      image: "public/zitelle pictures/18litres.jpg",
+      image: "/zitelle pictures/18litres.jpg",
     },
 
     {
       title: "Cooking Oil",
       description:
         "Pure and healthy cooking oil processed with high production standards for homes and businesses.",
-      image: "public/zitelle pictures/4litres oil2.png",
+      image: "/zitelle pictures/4litres oil2.png",
     },
   ];
 
