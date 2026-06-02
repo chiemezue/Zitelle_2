@@ -88,16 +88,23 @@ const Footer = () => {
           <h3>Our Services</h3>
 
           <ul>
-            <li>Oil Refinery</li>
+            <li>
+              <Link to="/services/cooking-oil">Cooking Oil</Link>
+            </li>
 
-            <li>Plywood</li>
+            <li>
+              <Link to="/services/plywood">Plywood</Link>
+            </li>
 
-            <li>Packaging</li>
+            <li>
+              <Link to="/services/packaging">Packaging</Link>
+            </li>
 
-            <li>Soap Manufacturing</li>
+            <li>
+              <Link to="/services/soap">Soap Manufacturing</Link>
+            </li>
           </ul>
         </div>
-
         {/* ───────── CONTACT ───────── */}
 
         <div className="footer__contact">

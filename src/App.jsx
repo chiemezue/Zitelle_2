@@ -9,6 +9,10 @@ import About from "./Pages/About";
 import Careers from "./Pages/Career";
 import CareerForm from "./Components/CareerComponents/CareerForm";
 import Contact from "./Pages/Contact";
+import Plywood from "./Pages/Plywood";
+import Soap from "./Pages/Soap";
+import CookingOil from "./Pages/CookingOil";
+import Packaging from "./Pages/Packaging";
 
 const App = () => {
   return (
@@ -23,6 +27,11 @@ const App = () => {
           <Route path="/careers" element={<Careers />} />
           <Route path="/career/apply" element={<CareerForm />} />
           <Route path="/contact" element={<Contact />} />
+
+          <Route path="/services/plywood" element={<Plywood />} />
+          <Route path="/services/soap" element={<Soap />} />
+          <Route path="/services/cooking-oil" element={<CookingOil />} />
+          <Route path="/services/packaging" element={<Packaging />} />
         </Route>
       </Routes>
     </BrowserRouter>

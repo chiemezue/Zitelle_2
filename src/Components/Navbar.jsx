@@ -1,5 +1,4 @@
 import { useState, useEffect } from "react";
-
 import { Link, NavLink } from "react-router-dom";
 
 import logo from "/images/zitelle-logo.png";
@@ -7,11 +6,29 @@ import logo from "/images/zitelle-logo.png";
 /* ───────── SERVICES ───────── */
 
 const services = [
-  { num: "01", label: "Oil Making", href: "#oil" },
+  {
+    num: "01",
+    label: "Oil Making",
+    path: "/services/cooking-oil",
+  },
 
-  { num: "02", label: "Soap Making", href: "#soap" },
+  {
+    num: "02",
+    label: "Soap Manufacturing",
+    path: "/services/soap",
+  },
 
-  { num: "03", label: "Plywood", href: "#wood" },
+  {
+    num: "03",
+    label: "Plywood Industry",
+    path: "/services/plywood",
+  },
+
+  {
+    num: "04",
+    label: "Packaging",
+    path: "/services/packaging",
+  },
 ];
 
 /* ───────── NAV LINKS ───────── */
@@ -25,7 +42,6 @@ const navLinks = [
 
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
-
   const [hidden, setHidden] = useState(false);
 
   /* ───────── HIDE ON SCROLL ───────── */
@@ -55,16 +71,15 @@ const Navbar = () => {
       {/* ───────────────── DESKTOP NAVBAR ───────────────── */}
 
       <nav className={`navbar ${hidden ? "navbar--hidden" : ""}`}>
-        {/* ───────── LOGO ───────── */}
+        {/* LOGO */}
 
         <Link to="/">
           <img src={logo} alt="Zitelle Group" className="navbar__logo" />
         </Link>
 
-        {/* ───────── NAV LINKS ───────── */}
+        {/* NAV LINKS */}
 
         <ul className="navbar__links">
-          {/* ABOUT */}
           <li>
             <NavLink to="/">Home</NavLink>
           </li>
@@ -72,11 +87,12 @@ const Navbar = () => {
           <li>
             <NavLink to="/about">About</NavLink>
           </li>
+
           <li>
             <NavLink to="/why_us">Why Us</NavLink>
           </li>
 
-          {/* SERVICES DROPDOWN */}
+          {/* SERVICES */}
 
           <li className="navbar__dropdown">
             <button className="navbar__dropdown-btn">
@@ -95,24 +111,22 @@ const Navbar = () => {
             <ul className="navbar__dropdown-menu">
               {services.map((service) => (
                 <li key={service.num}>
-                  <a href={service.href}>
+                  <Link to={service.path}>
                     <span className="navbar__dropdown-num">{service.num}</span>
 
                     {service.label}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>
           </li>
-
-          {/* CAREERS */}
 
           <li>
             <NavLink to="/careers">Careers</NavLink>
           </li>
         </ul>
 
-        {/* ───────── CTA ───────── */}
+        {/* CTA */}
 
         <NavLink to="/contact" className="navbar__cta">
           Contact Us
@@ -127,7 +141,7 @@ const Navbar = () => {
           </svg>
         </NavLink>
 
-        {/* ───────── HAMBURGER ───────── */}
+        {/* HAMBURGER */}
 
         <button
           className="navbar__hamburger"
@@ -148,7 +162,7 @@ const Navbar = () => {
       {/* ───────────────── MOBILE MENU ───────────────── */}
 
       <div className={`mobile-menu ${menuOpen ? "open" : ""}`}>
-        {/* ───────── TOP ───────── */}
+        {/* TOP */}
 
         <div className="mobile-menu__head">
           <Link to="/" onClick={() => setMenuOpen(false)}>
@@ -164,21 +178,21 @@ const Navbar = () => {
           </button>
         </div>
 
-        {/* ───────── SERVICES ───────── */}
+        {/* SERVICES */}
 
         <p className="mobile-menu__services-label">Services</p>
 
         <ul className="mobile-menu__services">
           {services.map((service) => (
             <li key={service.num}>
-              <a href={service.href} onClick={() => setMenuOpen(false)}>
+              <Link to={service.path} onClick={() => setMenuOpen(false)}>
                 {service.label}
-              </a>
+              </Link>
             </li>
           ))}
         </ul>
 
-        {/* ───────── LINKS ───────── */}
+        {/* LINKS */}
 
         <ul className="mobile-menu__links">
           {navLinks.map((link) => (
@@ -190,7 +204,7 @@ const Navbar = () => {
           ))}
         </ul>
 
-        {/* ───────── CTA ───────── */}
+        {/* CTA */}
 
         <NavLink
           to="/contact"
