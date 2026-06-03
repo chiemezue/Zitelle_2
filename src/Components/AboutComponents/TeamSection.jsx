@@ -76,10 +76,10 @@ const TeamSection = () => {
       {/* TOP */}
 
       <div className="team__top">
-        <div className="about__label">
+        <div className="section-label">
           <span>Our Executive Team</span>
 
-          <div className="about__line" />
+          <div className="section-line" />
         </div>
 
         <h2 className="team__title">

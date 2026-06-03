@@ -26,10 +26,10 @@ const CareerCulture = () => {
       {/* TOP */}
 
       <div className="career-culture__top">
-        {/* <div className="about__label">
+        {/* <div className="section-label">
           <span>Life At Zitelle</span>
 
-          <div className="about__line" />
+          <div className="section-line" />
         </div> */}
 
         <h2 className="career-culture__title">

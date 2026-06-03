@@ -1,4 +1,6 @@
 import { useState, useEffect, useCallback } from "react";
+import { Link } from "react-router-dom";
+import HeroStats from "../HeroStats";
 
 const slides = [
   {
@@ -6,21 +8,23 @@ const slides = [
 
     src: "/zitelle pictures/factoryai.jpg",
 
-    alt: "Premium manufacturing company in Nigeria",
+    alt: "Zitelle Cooking Oil",
 
     title: (
       <>
-        <span className="hero__eyebrow">Quality You Can Trust</span>
+        Pure <span className="hl-yellow">Cooking Oil Made</span>
         <br />
-        From Our <span className="hl-yellow">Heart</span>
+        For Homes
         <br />
-        to Your Home.
+        And Businesses
       </>
     ),
 
-    sub: "Quality manufacturing trusted across homes and industries in the East.",
+    sub: "Refined palm kernel oil produced to support households, food businesses, soap manufacturers, and industrial users with reliable quality and consistent supply.",
 
     cta: "Explore",
+
+    link: "/services/cooking-oil",
   },
 
   {
@@ -28,19 +32,23 @@ const slides = [
 
     src: "/zitelle pictures/factoryai2.png",
 
-    alt: "Soap manufacturing and cleansing products",
+    alt: "Zitelle Soap Manufacturing",
 
     title: (
       <>
-        From our factory to your <span className="hl-yellow">daily</span>
+        Everyday <span className="hl-yellow">Cleanliness</span>
         <br />
-        clean moment
+        Backed By Quality
+        <br />
+        Production
       </>
     ),
 
-    sub: "Every soap we make is crafted with purpose, delivered with care, and trusted in homes across Nigeria.",
+    sub: "Manufactured from carefully selected oil-based raw materials, Zitelle Soap delivers practical, affordable, and dependable cleaning solutions for everyday use.",
 
     cta: "Explore",
+
+    link: "/services/soap",
   },
 
   {
@@ -48,19 +56,47 @@ const slides = [
 
     src: "/zitelle pictures/lorry.jpg",
 
-    alt: "Premium plywood timber and woodwork",
+    alt: "TATA & BOBO Plywood",
 
     title: (
       <>
-        Built from the forest, <span className="hl-yellow">built</span>
+        Quality <span className="hl-yellow">Plywood</span>
         <br />
-        to last a lifetime
+        Built For Construction
+        <br />
+        And Furniture
       </>
     ),
 
-    sub: "Our plywood is responsibly sourced and engineered for strength, durability, and long-term performance.",
+    sub: "Through TATA & BOBO, we supply dependable plywood and board products trusted by furniture makers, contractors, interior designers, and distributors.",
 
     cta: "Explore",
+
+    link: "/services/plywood",
+  },
+
+  {
+    id: 4,
+
+    src: "/zitelle pictures/18litres.jpg",
+
+    alt: "Zitelle Packaging Solutions",
+
+    title: (
+      <>
+        Durable <span className="hl-yellow">Packaging</span>
+        <br />
+        Designed For
+        <br />
+        Every Journey
+      </>
+    ),
+
+    sub: "We manufacture strong plastic jerrycans used for edible oils, liquid products, industrial packaging, and bulk commercial supply across multiple industries.",
+
+    cta: "Explore",
+
+    link: "/services/packaging",
   },
 ];
 
@@ -88,104 +124,122 @@ const Hero = () => {
   }, [next]);
 
   return (
-    <section className="hero">
-      {/* ───────── TRACK ───────── */}
+    <>
+      <section className="hero">
+        {/* TRACK */}
 
-      <div
-        className="hero__track"
-        style={{
-          transform: `translateX(-${current * (100 / slides.length)}%)`,
-        }}
-      >
-        {slides.map((slide, i) => (
-          <div
-            key={slide.id}
-            className={`hero__slide ${i === current ? "active" : ""}`}
-          >
-            {/* IMAGE */}
+        <div
+          className="hero__track"
+          style={{
+            width: `${slides.length * 100}%`,
+            transform: `translateX(-${current * (100 / slides.length)}%)`,
+          }}
+        >
+          {slides.map((slide, i) => (
+            <div
+              key={slide.id}
+              className={`hero__slide ${i === current ? "active" : ""}`}
+              style={{
+                width: `${100 / slides.length}%`,
+              }}
+            >
+              {/* IMAGE */}
 
-            <img
-              src={slide.src}
-              alt={slide.alt}
-              loading={i === 0 ? "eager" : "lazy"}
-            />
+              <img
+                src={slide.src}
+                alt={slide.alt}
+                loading={i === 0 ? "eager" : "lazy"}
+              />
 
-            {/* OVERLAY */}
+              {/* OVERLAY */}
 
-            <div className="hero__overlay" />
+              <div className="hero__overlay" />
 
-            {/* CONTENT */}
+              {/* CONTENT */}
 
-            <div className="hero__content">
-              <h1 className="hero__title">{slide.title}</h1>
+              <div className="hero__content">
+                <h1 className="hero__title">{slide.title}</h1>
 
-              <p className="hero__sub">{slide.sub}</p>
+                <p className="hero__sub">{slide.sub}</p>
 
-              <a href="#explore" className="hero__btn">
-                {slide.cta}
+                <Link to={slide.link} className="hero__btn">
+                  {slide.cta}
 
-                <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-                  <path
-                    d="M3 8h10M9 4l4 4-4 4"
-                    stroke="currentColor"
-                    strokeWidth="1.8"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  />
-                </svg>
-              </a>
+                  <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                    <path
+                      d="M3 8h10M9 4l4 4-4 4"
+                      stroke="currentColor"
+                      strokeWidth="1.8"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    />
+                  </svg>
+                </Link>
+              </div>
             </div>
-          </div>
-        ))}
+          ))}
+        </div>
+
+        {/* ARROWS */}
+
+        <button
+          className="hero__arrow hero__arrow--prev"
+          onClick={prev}
+          aria-label="Previous slide"
+        >
+          <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
+            <path
+              d="M11 4L6 9l5 5"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            />
+          </svg>
+        </button>
+
+        <button
+          className="hero__arrow hero__arrow--next"
+          onClick={next}
+          aria-label="Next slide"
+        >
+          <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
+            <path
+              d="M7 4l5 5-5 5"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            />
+          </svg>
+        </button>
+
+        {/* DOTS */}
+
+        <div className="hero__dots">
+          {slides.map((_, i) => (
+            <button
+              key={i}
+              className={`hero__dot ${i === current ? "active" : ""}`}
+              onClick={() => goTo(i)}
+              aria-label={`Go to slide ${i + 1}`}
+            />
+          ))}
+        </div>
+      </section>
+
+      {/* Desktop Stats */}
+
+      <div className="hero-stats hero-stats--desktop">
+        <HeroStats />
       </div>
 
-      {/* ───────── ARROWS ───────── */}
+      {/* Mobile Stats */}
 
-      <button
-        className="hero__arrow hero__arrow--prev"
-        onClick={prev}
-        aria-label="Previous slide"
-      >
-        <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
-          <path
-            d="M11 4L6 9l5 5"
-            stroke="currentColor"
-            strokeWidth="2"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          />
-        </svg>
-      </button>
-
-      <button
-        className="hero__arrow hero__arrow--next"
-        onClick={next}
-        aria-label="Next slide"
-      >
-        <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
-          <path
-            d="M7 4l5 5-5 5"
-            stroke="currentColor"
-            strokeWidth="2"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          />
-        </svg>
-      </button>
-
-      {/* ───────── DOTS ───────── */}
-
-      <div className="hero__dots">
-        {slides.map((_, i) => (
-          <button
-            key={i}
-            className={`hero__dot ${i === current ? "active" : ""}`}
-            onClick={() => goTo(i)}
-            aria-label={`Go to slide ${i + 1}`}
-          />
-        ))}
+      <div className="hero-stats hero-stats--mobile">
+        <HeroStats />
       </div>
-    </section>
+    </>
   );
 };
 

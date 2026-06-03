@@ -32,34 +32,36 @@ const AboutSection = () => {
       {/* ───────── LEFT CONTENT ───────── */}
 
       <div className="about__content">
-        <div className="about__label">
-          <span>We Produce</span>
+        <div className="section-label">
+          <span>WHO WE ARE </span>
 
-          <div className="about__line"></div>
+          <div className="section-line"></div>
         </div>
 
         {/* ───────── REUSABLE TYPING COMPONENT ───────── */}
 
         <TypingText
-          text="Quality Products for Every Nigerian Home"
+          text="Quality You Can Trust, From Our Heart to Your Home. "
           speed={75}
           className="about__title"
         />
 
         <p className="about__text">
-          At Zitelle, we manufacture three core product lines — pure cooking
-          oil, everyday soaps, and durable plastic products.
+          Zitelle Group is behind the essentials that keep life moving – made
+          with care, produced to standard, and supplied with consistency across
+          Nigeria. From manufacturing to packaging and dependable delivery, we
+          sweat the details so you don’t have to.
         </p>
 
         <p className="about__text">
-          Each product is crafted with care, refined to meet the highest
-          standards, and designed to serve the everyday needs of Nigerian homes
-          and businesses.
+          Whether it’s for your household or your business, you can count on
+          quality that shows up the same way every time. From our hearts to your
+          home, we deliver trust in every product.
         </p>
 
         <button className="about__btn">
           <Link to={"/about"}>
-            About Us
+            Learn More
             <span>→</span>
           </Link>
         </button>

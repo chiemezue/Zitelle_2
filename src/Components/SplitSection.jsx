@@ -22,10 +22,10 @@ const SplitSection = ({
       <div className="split-section__content">
         {/* LABEL */}
 
-        <div className="about__label">
+        <div className="section-label">
           <span>{label}</span>
 
-          <div className="about__line" />
+          <div className="section-line" />
         </div>
 
         {/* TITLE */}

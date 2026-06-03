@@ -11,9 +11,9 @@ const aboutSections = [
 
     title: "Built Around Everyday Essentials",
 
-    text: `Zitelle Group is behind the essentials that keep life moving — made with care, produced to standard, and supplied with consistency across Nigeria.`,
+    text: `Zitelle Group is an integrated Nigerian manufacturing group committed to producing essential products for homes, businesses and industries. With operations spanning edible oils, multipurpose soap, plastic packaging, and wood products, we bring together different sectors under one shared standard of quality, reliability and service`,
 
-    extra: `Across homes and industries, our products are created to serve everyday needs with reliability and trust.`,
+    extra: `For over a decade, we have operated with discipline and consistency, working seven days a week to improve our processes, strengthen our products, and deliver dependable value to our customers. Our journey has been shaped by resilience, continuous improvement, and clear understanding of the role manufacturing plays in everyday life. `,
 
     image: "/zitelle pictures/zitelle trucks 2.jpg",
   },
@@ -35,13 +35,13 @@ const aboutSections = [
   {
     id: 3,
 
-    label: "Our Promise",
+    label: "Our Standard",
 
-    title: "Quality You Can Always Trust",
+    title: "Built on Discipline, Consistency, and Improvement",
 
-    text: `Whether it’s for your household or your business, you can count on quality that shows up the same way every time.`,
+    text: `At Zitelle, consistency is part of our identity. Operating seven days a week for over a decade has taught us that quality is not achieved by chance. It is built through routine, monitoring, training, process improvement, and commitment. `,
 
-    extra: `From our hearts to your home, we deliver products built on trust, long-term value and dependable performance.`,
+    extra: `Across our divisions, we continue to refine how we work – from raw material handling and production to packaging, quality control, logistics, and customer service. Our goal is not only to manufacture products, but to keep improving the systems behind those products.`,
 
     image: "/zitelle pictures/office.jpg",
   },
@@ -52,7 +52,7 @@ const About = () => {
     <>
       <PageHero
         title="About"
-        highlight="Us"
+        highlight=""
         image="/zitelle pictures/environment.png"
         breadcrumb={
           <>

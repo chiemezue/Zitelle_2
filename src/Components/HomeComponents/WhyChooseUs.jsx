@@ -56,7 +56,7 @@ const WhyChooseUs = () => {
   };
 
   return (
-    <section className="choose premium-dark-bg">
+    <section className="choose">
       {/* ───────── LEFT CONTENT ───────── */}
 
       <div className="choose__content">
@@ -71,13 +71,13 @@ const WhyChooseUs = () => {
         </h2>
 
         <p className="choose__text">
-          Everything we do is held to one standard excellence. From our
-          manufacturing process to our delivery.
+          Built On Quality. Driven By Demand. <br />
         </p>
 
         <p className="choose__text">
-          We are committed to products and partnerships that stand the test of
-          time.
+          Everything we do is held to one standard excellence. From our
+          manufacturing process to our delivery. We are committed to products
+          and partnerships that stand the test of time.
         </p>
       </div>
 

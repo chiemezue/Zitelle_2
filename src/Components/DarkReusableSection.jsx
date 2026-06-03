@@ -9,6 +9,7 @@ const DarkReusableSection = ({
   image,
   buttonLink,
   overlay = true,
+  items = [],
 }) => {
   return (
     <section className="career">
@@ -25,23 +26,39 @@ const DarkReusableSection = ({
       {/* CONTENT */}
 
       <div className="career__content">
-        <div className="career__label">
-          <span>{label}</span>
+        {/* LEFT */}
 
-          <div className="career__line"></div>
+        <div className="career__left">
+          <div className="career__label">
+            <span>{label}</span>
+
+            <div className="career__line"></div>
+          </div>
+
+          <TypingText text={title} speed={75} className="career__title" />
+
+          {buttonText && buttonLink && (
+            <Link to={buttonLink} className="about__btn">
+              {buttonText}
+
+              <span>→</span>
+            </Link>
+          )}
         </div>
 
-        <TypingText text={title} speed={75} className="career__title" />
+        {/* RIGHT */}
 
-        <p className="career__text">{text}</p>
+        <div className="career__right">
+          <p className="career__text">{text}</p>
 
-        {buttonText && buttonLink && (
-          <Link to={buttonLink} className="career__btn">
-            {buttonText}
-
-            <span>→</span>
-          </Link>
-        )}
+          {items.length > 0 && (
+            <ul className="career__list">
+              {items.map((item, index) => (
+                <li key={index}>{item}</li>
+              ))}
+            </ul>
+          )}
+        </div>
       </div>
     </section>
   );

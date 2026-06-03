@@ -4,9 +4,9 @@ import { Link } from "react-router-dom";
 import {
   FaFacebookF,
   FaInstagram,
-  FaTiktok,
   FaMapMarkerAlt,
   FaTwitter,
+  FaYoutube,
 } from "react-icons/fa";
 
 import { HiMail, HiPhone } from "react-icons/hi";
@@ -15,7 +15,7 @@ import logo from "/images/logo2.png";
 
 const Footer = () => {
   return (
-    <footer className="footer premium-dark-bg">
+    <footer className="footer">
       <div className="footer__container">
         {/* ───────── BRAND ───────── */}
 
@@ -55,7 +55,7 @@ const Footer = () => {
               target="_blank"
               rel="noopener noreferrer"
             >
-              <FaTiktok />
+              <FaYoutube />
             </a>
           </div>
         </div>
@@ -73,11 +73,14 @@ const Footer = () => {
               <Link to="/why_us">Why us</Link>
             </li>
             <li>
-              <Link to="/contact">Contact Us</Link>
+              <Link to="/services/plywood">Our Businesses</Link>
             </li>
 
             <li>
-              <Link to="/careers">Careers</Link>
+              <Link to="/career/apply">Career Opportunities</Link>
+            </li>
+            <li>
+              <Link to="/contact">Contact</Link>
             </li>
           </ul>
         </div>
@@ -113,23 +116,25 @@ const Footer = () => {
           <div className="footer__contact-item">
             <FaMapMarkerAlt />
 
-            <span>Amansea, By Ebenebe Road, Awka North, Anambra State.</span>
+            <span>
+              Amansea, By Ebenebe Road, Awka North, Anambra State. <br />
+              43 Ladipo Street, Off Chicken George Roundabout, Mushin, Lagos
+            </span>
           </div>
 
           <div className="footer__contact-item">
             <HiMail />
 
-            <span>
-              info@zitellegroup.com
-              <br />
-              joe4k2010@gmail.com
-            </span>
+            <span>info@zitellegroup.com</span>
           </div>
 
           <div className="footer__contact-item">
             <HiPhone />
 
-            <span>+234 814 783 9951</span>
+            <span>
+              +234 814 783 9951 <br />
+              +234 814 111 9254
+            </span>
           </div>
         </div>
       </div>

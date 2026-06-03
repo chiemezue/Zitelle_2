@@ -1,103 +1,102 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Link, NavLink } from "react-router-dom";
-
 import logo from "/images/zitelle-logo.png";
 
-/* ───────── SERVICES ───────── */
-
 const services = [
-  {
-    num: "01",
-    label: "Oil Making",
-    path: "/services/cooking-oil",
-  },
-
-  {
-    num: "02",
-    label: "Soap Manufacturing",
-    path: "/services/soap",
-  },
-
-  {
-    num: "03",
-    label: "Plywood Industry",
-    path: "/services/plywood",
-  },
-
-  {
-    num: "04",
-    label: "Packaging",
-    path: "/services/packaging",
-  },
+  { num: "01", label: "Oil", path: "/services/cooking-oil" },
+  { num: "02", label: "Soap", path: "/services/soap" },
+  { num: "03", label: "Plywood", path: "/services/plywood" },
+  { num: "04", label: "Packaging", path: "/services/packaging" },
 ];
-
-/* ───────── NAV LINKS ───────── */
 
 const navLinks = [
   { label: "Home", path: "/" },
   { label: "About", path: "/about" },
   { label: "Why Us", path: "/why_us" },
   { label: "Careers", path: "/careers" },
+  { label: "Contact", path: "/contact" },
 ];
 
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const [hidden, setHidden] = useState(false);
+  const [dropdownOpen, setDropdownOpen] = useState(false);
+  const dropdownRef = useRef(null);
 
   /* ───────── HIDE ON SCROLL ───────── */
-
   useEffect(() => {
     let lastScrollY = window.scrollY;
-
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
-
       if (currentScrollY > lastScrollY && currentScrollY > 80) {
         setHidden(true);
       } else {
         setHidden(false);
       }
-
       lastScrollY = currentScrollY;
     };
-
     window.addEventListener("scroll", handleScroll);
-
     return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  /* ───────── CLOSE DROPDOWN ON OUTSIDE CLICK ───────── */
+  useEffect(() => {
+    const handleClickOutside = (e) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(e.target)) {
+        setDropdownOpen(false);
+      }
+    };
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
   return (
     <>
       {/* ───────────────── DESKTOP NAVBAR ───────────────── */}
-
       <nav className={`navbar ${hidden ? "navbar--hidden" : ""}`}>
         {/* LOGO */}
-
         <Link to="/">
           <img src={logo} alt="Zitelle Group" className="navbar__logo" />
         </Link>
 
         {/* NAV LINKS */}
-
         <ul className="navbar__links">
           <li>
-            <NavLink to="/">Home</NavLink>
+            <NavLink
+              to="/"
+              className={({ isActive }) =>
+                isActive ? "nav-link active" : "nav-link"
+              }
+            >
+              Home
+            </NavLink>
           </li>
 
           <li>
-            <NavLink to="/about">About</NavLink>
+            <NavLink
+              to="/about"
+              className={({ isActive }) =>
+                isActive ? "nav-link active" : "nav-link"
+              }
+            >
+              About
+            </NavLink>
           </li>
 
-          <li>
-            <NavLink to="/why_us">Why Us</NavLink>
-          </li>
-
-          {/* SERVICES */}
-
-          <li className="navbar__dropdown">
-            <button className="navbar__dropdown-btn">
-              Services
-              <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+          {/* DROPDOWN — click to toggle */}
+          <li className="navbar__dropdown" ref={dropdownRef}>
+            <button
+              className={`navbar__dropdown-btn nav-link ${dropdownOpen ? "dropdown-open" : ""}`}
+              onClick={() => setDropdownOpen((prev) => !prev)}
+            >
+              Our Business
+              <svg
+                width="14"
+                height="14"
+                viewBox="0 0 14 14"
+                fill="none"
+                className={`navbar__dropdown-chevron ${dropdownOpen ? "rotate-180" : ""}`}
+              >
                 <path
                   d="M3 5l4 4 4-4"
                   stroke="currentColor"
@@ -108,12 +107,15 @@ const Navbar = () => {
               </svg>
             </button>
 
-            <ul className="navbar__dropdown-menu">
+            <ul
+              className={`navbar__dropdown-menu ${dropdownOpen ? "navbar__dropdown-menu--open" : ""}`}
+            >
               {services.map((service) => (
                 <li key={service.num}>
-                  <Link to={service.path}>
-                    <span className="navbar__dropdown-num">{service.num}</span>
-
+                  <Link
+                    to={service.path}
+                    onClick={() => setDropdownOpen(false)}
+                  >
                     {service.label}
                   </Link>
                 </li>
@@ -122,27 +124,40 @@ const Navbar = () => {
           </li>
 
           <li>
-            <NavLink to="/careers">Careers</NavLink>
+            <NavLink
+              to="/why_us"
+              className={({ isActive }) =>
+                isActive ? "nav-link active" : "nav-link"
+              }
+            >
+              Why Us
+            </NavLink>
+          </li>
+
+          <li>
+            <NavLink
+              to="/careers"
+              className={({ isActive }) =>
+                isActive ? "nav-link active" : "nav-link"
+              }
+            >
+              Careers
+            </NavLink>
+          </li>
+
+          <li>
+            <NavLink
+              to="/contact"
+              className={({ isActive }) =>
+                isActive ? "nav-link active" : "nav-link"
+              }
+            >
+              Contact
+            </NavLink>
           </li>
         </ul>
 
-        {/* CTA */}
-
-        <NavLink to="/contact" className="navbar__cta">
-          Contact Us
-          <svg width="15" height="15" viewBox="0 0 15 15" fill="none">
-            <path
-              d="M3 7.5h9M8.5 4l3.5 3.5L8.5 11"
-              stroke="currentColor"
-              strokeWidth="1.8"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            />
-          </svg>
-        </NavLink>
-
         {/* HAMBURGER */}
-
         <button
           className="navbar__hamburger"
           onClick={() => setMenuOpen(true)}
@@ -160,15 +175,11 @@ const Navbar = () => {
       </nav>
 
       {/* ───────────────── MOBILE MENU ───────────────── */}
-
       <div className={`mobile-menu ${menuOpen ? "open" : ""}`}>
-        {/* TOP */}
-
         <div className="mobile-menu__head">
           <Link to="/" onClick={() => setMenuOpen(false)}>
             <img src={logo} alt="Zitelle Group" className="navbar__logo" />
           </Link>
-
           <button
             className="mobile-menu__close"
             onClick={() => setMenuOpen(false)}
@@ -178,9 +189,7 @@ const Navbar = () => {
           </button>
         </div>
 
-        {/* SERVICES */}
-
-        <p className="mobile-menu__services-label">Services</p>
+        <p className="mobile-menu__services-label">Our Business</p>
 
         <ul className="mobile-menu__services">
           {services.map((service) => (
@@ -192,8 +201,6 @@ const Navbar = () => {
           ))}
         </ul>
 
-        {/* LINKS */}
-
         <ul className="mobile-menu__links">
           {navLinks.map((link) => (
             <li key={link.label}>
@@ -203,16 +210,6 @@ const Navbar = () => {
             </li>
           ))}
         </ul>
-
-        {/* CTA */}
-
-        <NavLink
-          to="/contact"
-          className="mobile-menu__cta"
-          onClick={() => setMenuOpen(false)}
-        >
-          Contact Us →
-        </NavLink>
       </div>
     </>
   );

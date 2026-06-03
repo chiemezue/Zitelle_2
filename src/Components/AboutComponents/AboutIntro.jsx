@@ -44,10 +44,10 @@ const AboutIntro = ({ sections }) => {
           >
             {/* LABEL */}
 
-            <div className="about__label">
+            <div className="section-label">
               <span>{section.label}</span>
 
-              <div className="about__line" />
+              <div className="section-line" />
             </div>
 
             {/* TITLE */}
@@ -64,9 +64,9 @@ const AboutIntro = ({ sections }) => {
 
             {/* TEXT */}
 
-            <p className="about__text">{section.text}</p>
+            <p className="section-text">{section.text}</p>
 
-            <div className="about__text">
+            <div className="section-text">
               <p>{section.extra}</p>
             </div>
 

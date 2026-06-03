@@ -7,10 +7,10 @@ const ContactSection = () => {
         {/* LEFT */}
 
         <div className="contact__info">
-          <div className="about__label">
+          <div className="section-label">
             <span>Get In Touch</span>
 
-            <div className="about__line" />
+            <div className="section-line" />
           </div>
 
           <h2 className="contact__title">Get In Touch With Us Today</h2>
