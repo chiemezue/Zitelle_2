@@ -1,8 +1,8 @@
 const features = [
   {
     number: "01",
-    title: "Quality Is Part Of Every Stage.",
-    text: "Quality is built into our process, not added at the end. Our teams monitor production, carry out checks, and maintain documentation to support consistency and customer confidence.",
+    title: "Integrated Manufacturing ",
+    text: "Our divisions are connected in ways that create stronger control and better consistency. We produce oil used within our soap manufacturing, and our plastic division manufactures jerrycans from scratch for both Zitelle Oil and external customers.",
 
     image:
       "https://images.unsplash.com/photo-1581092921461-eab62e97a780?q=80&w=1600&auto=format&fit=crop",
@@ -10,8 +10,8 @@ const features = [
 
   {
     number: "02",
-    title: "Reliable Supply",
-    text: "Our manufacturing and distribution approach is designed to support dependable supply for retailers, wholesalers, distributors and commercial buyers.",
+    title: "Quality at Every Stage ",
+    text: "Quality is built into our process, not added at the end. Our teams monitor production, carry out checks, and maintain documentation to support consistency and customer confidence.",
 
     image:
       "https://images.unsplash.com/photo-1553413077-190dd305871c?q=80&w=1600&auto=format&fit=crop",
@@ -19,8 +19,16 @@ const features = [
 
   {
     number: "03",
-    title: "Built For Long-Term Trust",
-    text: "We focus on building relationships through consistency, product reliability and operational standards customers can depend on over time.",
+    title: "Reliable Supply",
+    text: "We understand that customers need more than good products – they need products they can access consistently. Our manufacturing and distribution approach is designed to support dependable supply for retailers, wholesalers, distributors and commercial buyers.",
+
+    image:
+      "https://images.unsplash.com/photo-1520607162513-77705c0f0d4a?q=80&w=1600&auto=format&fit=crop",
+  },
+  {
+    number: "04",
+    title: "Commitment to Local Manufacturing",
+    text: "Zitelle Group is proud to contribute to Nigerian manufacturing. By producing essential goods locally, we support enterprise, strengthen the supply chain and contribute to the growth of industries that serve everyday life. ",
 
     image:
       "https://images.unsplash.com/photo-1520607162513-77705c0f0d4a?q=80&w=1600&auto=format&fit=crop",

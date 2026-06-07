@@ -9,13 +9,14 @@ const whySections = [
   {
     id: 1,
 
-    label: "Our Standard",
+    label: "Why Us",
 
-    title: "Our Divisions Work Togetherfor Stronger Control.",
+    title: "Why Choose Zitelle Group",
 
-    text: `Our divisions are connected in ways that create stronger control and better consistency.`,
+    text: `At Zitelle Group, we are driven by one standard across every division, to deliver products customers can trust. From edible oils and multipurpose soap to plastic packaging and wood importation, our work is built around quality, consistency, and dependable supply.
+`,
 
-    extra: `We produce oil used within our soap manufacturing, and our plastic division manufactures jerrycans from scratch for both Zitelle Oil and external customers.`,
+    extra: `For over a decade, we have operated with discipline and resilience, working seven days a week to improve our processes, strengthen our products, and serve homes, businesses, and industries with reliability. `,
 
     image: "/zitelle pictures/office.jpg",
   },
@@ -42,7 +43,7 @@ const WhyUs = () => {
       <DarkReusableSection
         label="Get In Touch"
         title="Ready to Work With Zitelle?"
-        text="Our manufacturing and distribution approach is designed to support dependable supply for retailers, wholesalers, distributors and commercial buyers."
+        text="Zitelle provides reliable manufacturing and distribution support for retailers, wholesalers, and commercial partners. Our systems are built to ensure consistent supply, quality production, and timely delivery across all product lines. We focus on building long-term partnerships through trust, efficiency, and scalable operations."
         buttonLink="/contact"
         buttonText="Contact Us"
         image="/zitelle pictures/machine4.jpg"

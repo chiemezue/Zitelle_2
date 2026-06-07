@@ -11,9 +11,9 @@ const careerSections = [
 
     title: "Build A Career With Purpose",
 
-    text: `At Zitelle Group, we believe people are the foundation of sustainable growth and long-term success.`,
+    text: `At Zitelle Group, we believe our people are central to our success. As an integrated manufacturing group, our work depends on dedicated teams across production, quality control, packaging, logistics, administration, sales, and internal operations.`,
 
-    extra: `We create opportunities for passionate individuals to grow, contribute and build meaningful careers.`,
+    extra: `For over a decade, we have operated with discipline and consistency, producing essential products that serve homes, businesses, and industries. Our people help make this possible everyday. `,
 
     image: "/zitelle pictures/office.jpg",
   },
@@ -36,12 +36,13 @@ const Career = () => {
       />
 
       <AboutIntro sections={careerSections} />
-      <CareerRoles />
       <CareerCulture />
+      <CareerRoles />
+
       <SplitSection
         label="Join Our Team"
-        title="Interested In Joining Zitelle?"
-        text="We are always looking for talented, hardworking, and motivated people who want to grow with us."
+        title="Interested In Joining Our Team?"
+        text="We are always looking for talented, hardworking, and motivated people who want to grow with us. "
         extra="Explore our available roles and discover where your skills, experience, and ambition could fit within Zitelle Group."
         image="/zitelle pictures/office.jpg"
         buttonText="View Roles"

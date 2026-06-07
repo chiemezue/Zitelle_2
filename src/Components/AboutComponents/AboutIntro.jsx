@@ -64,8 +64,9 @@ const AboutIntro = ({ sections }) => {
 
             {/* TEXT */}
 
-            <p className="section-text">{section.text}</p>
-
+            <p className="section-text" style={{ whiteSpace: "pre-line" }}>
+              {section.text}
+            </p>
             <div className="section-text">
               <p>{section.extra}</p>
             </div>

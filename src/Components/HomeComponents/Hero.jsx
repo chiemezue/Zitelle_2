@@ -5,11 +5,8 @@ import HeroStats from "../HeroStats";
 const slides = [
   {
     id: 1,
-
     src: "/zitelle pictures/factoryai.jpg",
-
     alt: "Zitelle Cooking Oil",
-
     title: (
       <>
         Pure <span className="hl-yellow">Cooking Oil Made</span>
@@ -19,21 +16,14 @@ const slides = [
         And Businesses
       </>
     ),
-
     sub: "Refined palm kernel oil produced to support households, food businesses, soap manufacturers, and industrial users with reliable quality and consistent supply.",
-
     cta: "Explore",
-
     link: "/services/cooking-oil",
   },
-
   {
     id: 2,
-
     src: "/zitelle pictures/factoryai2.png",
-
     alt: "Zitelle Soap Manufacturing",
-
     title: (
       <>
         Everyday <span className="hl-yellow">Cleanliness</span>
@@ -43,21 +33,14 @@ const slides = [
         Production
       </>
     ),
-
     sub: "Manufactured from carefully selected oil-based raw materials, Zitelle Soap delivers practical, affordable, and dependable cleaning solutions for everyday use.",
-
     cta: "Explore",
-
     link: "/services/soap",
   },
-
   {
     id: 3,
-
     src: "/zitelle pictures/lorry.jpg",
-
     alt: "TATA & BOBO Plywood",
-
     title: (
       <>
         Quality <span className="hl-yellow">Plywood</span>
@@ -67,21 +50,14 @@ const slides = [
         And Furniture
       </>
     ),
-
     sub: "Through TATA & BOBO, we supply dependable plywood and board products trusted by furniture makers, contractors, interior designers, and distributors.",
-
     cta: "Explore",
-
     link: "/services/plywood",
   },
-
   {
     id: 4,
-
     src: "/zitelle pictures/18litres.jpg",
-
     alt: "Zitelle Packaging Solutions",
-
     title: (
       <>
         Durable <span className="hl-yellow">Packaging</span>
@@ -91,14 +67,33 @@ const slides = [
         Every Journey
       </>
     ),
-
     sub: "We manufacture strong plastic jerrycans used for edible oils, liquid products, industrial packaging, and bulk commercial supply across multiple industries.",
-
     cta: "Explore",
-
     link: "/services/packaging",
   },
 ];
+
+/* ── Separate component so React fully unmounts/remounts on key change ── */
+const SlideContent = ({ slide }) => {
+  return (
+    <div className="hero__content-layer">
+      <h1 className="hero__title hero__anim-title">{slide.title}</h1>
+      <p className="hero__sub hero__anim-sub">{slide.sub}</p>
+      <Link to={slide.link} className="hero__btn hero__anim-btn">
+        {slide.cta}
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+          <path
+            d="M3 8h10M9 4l4 4-4 4"
+            stroke="currentColor"
+            strokeWidth="1.8"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          />
+        </svg>
+      </Link>
+    </div>
+  );
+};
 
 const Hero = () => {
   const [current, setCurrent] = useState(0);
@@ -107,85 +102,62 @@ const Hero = () => {
     setCurrent((index + slides.length) % slides.length);
   }, []);
 
-  const next = useCallback(() => {
-    goTo(current + 1);
-  }, [current, goTo]);
-
-  const prev = useCallback(() => {
-    goTo(current - 1);
-  }, [current, goTo]);
-
-  /* ───────── AUTO SLIDE ───────── */
+  const next = useCallback(() => goTo(current + 1), [current, goTo]);
+  const prev = useCallback(() => goTo(current - 1), [current, goTo]);
 
   useEffect(() => {
     const timer = setInterval(next, 6000);
-
     return () => clearInterval(timer);
   }, [next]);
 
   return (
     <>
       <section className="hero">
-        {/* TRACK */}
+        {/* PERMANENT OVERLAY */}
+        <div className="hero__overlay" style={{ zIndex: 2 }} />
 
-        <div
-          className="hero__track"
-          style={{
-            width: `${slides.length * 100}%`,
-            transform: `translateX(-${current * (100 / slides.length)}%)`,
-          }}
-        >
-          {slides.map((slide, i) => (
+        {/* IMAGES ONLY — crossfade behind overlay */}
+        {slides.map((slide, i) => {
+          const isActive = i === current;
+          return (
             <div
               key={slide.id}
-              className={`hero__slide ${i === current ? "active" : ""}`}
               style={{
-                width: `${100 / slides.length}%`,
+                position: "absolute",
+                inset: 0,
+                opacity: isActive ? 1 : 0,
+                transition: isActive
+                  ? "opacity 1.2s ease"
+                  : "opacity 0.8s ease",
+                zIndex: 1,
               }}
             >
-              {/* IMAGE */}
-
               <img
                 src={slide.src}
                 alt={slide.alt}
                 loading={i === 0 ? "eager" : "lazy"}
+                style={{
+                  width: "100%",
+                  height: "100%",
+                  objectFit: "cover",
+                  objectPosition: "center",
+                  transform: isActive ? "scale(1)" : "scale(1.07)",
+                  transition: "transform 9s ease",
+                }}
               />
-
-              {/* OVERLAY */}
-
-              <div className="hero__overlay" />
-
-              {/* CONTENT */}
-
-              <div className="hero__content">
-                <h1 className="hero__title">{slide.title}</h1>
-
-                <p className="hero__sub">{slide.sub}</p>
-
-                <Link to={slide.link} className="hero__btn">
-                  {slide.cta}
-
-                  <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-                    <path
-                      d="M3 8h10M9 4l4 4-4 4"
-                      stroke="currentColor"
-                      strokeWidth="1.8"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    />
-                  </svg>
-                </Link>
-              </div>
             </div>
-          ))}
-        </div>
+          );
+        })}
+
+        {/* TEXT — key forces full unmount/remount on every slide change */}
+        <SlideContent key={current} slide={slides[current]} />
 
         {/* ARROWS */}
-
         <button
           className="hero__arrow hero__arrow--prev"
           onClick={prev}
           aria-label="Previous slide"
+          style={{ zIndex: 10 }}
         >
           <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
             <path
@@ -202,6 +174,7 @@ const Hero = () => {
           className="hero__arrow hero__arrow--next"
           onClick={next}
           aria-label="Next slide"
+          style={{ zIndex: 10 }}
         >
           <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
             <path
@@ -215,8 +188,7 @@ const Hero = () => {
         </button>
 
         {/* DOTS */}
-
-        <div className="hero__dots">
+        <div className="hero__dots" style={{ zIndex: 10 }}>
           {slides.map((_, i) => (
             <button
               key={i}
@@ -228,14 +200,9 @@ const Hero = () => {
         </div>
       </section>
 
-      {/* Desktop Stats */}
-
       <div className="hero-stats hero-stats--desktop">
         <HeroStats />
       </div>
-
-      {/* Mobile Stats */}
-
       <div className="hero-stats hero-stats--mobile">
         <HeroStats />
       </div>
