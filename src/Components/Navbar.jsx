@@ -12,6 +12,7 @@ const services = [
 const navLinks = [
   { label: "Home", path: "/" },
   { label: "About", path: "/about" },
+  { label: "Business", path: "/business" },
   { label: "Why Us", path: "/why_us" },
   { label: "Careers", path: "/careers" },
   { label: "Contact", path: "/contact" },
@@ -85,30 +86,46 @@ const Navbar = () => {
 
           {/* DROPDOWN — click to toggle */}
           <li className="navbar__dropdown" ref={dropdownRef}>
-            <button
-              className={`navbar__dropdown-btn nav-link ${dropdownOpen ? "dropdown-open" : ""}`}
-              onClick={() => setDropdownOpen((prev) => !prev)}
-            >
-              Our Business
-              <svg
-                width="14"
-                height="14"
-                viewBox="0 0 14 14"
-                fill="none"
-                className={`navbar__dropdown-chevron ${dropdownOpen ? "rotate-180" : ""}`}
+            <div className="navbar__dropdown-trigger">
+              <NavLink
+                to="/business"
+                className={({ isActive }) =>
+                  isActive ? "nav-link active" : "nav-link"
+                }
               >
-                <path
-                  d="M3 5l4 4 4-4"
-                  stroke="currentColor"
-                  strokeWidth="1.8"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                />
-              </svg>
-            </button>
+                Our Business
+              </NavLink>
+
+              <button
+                type="button"
+                className="navbar__dropdown-toggle"
+                onClick={() => setDropdownOpen((prev) => !prev)}
+                aria-label="Toggle business menu"
+              >
+                <svg
+                  width="14"
+                  height="14"
+                  viewBox="0 0 14 14"
+                  fill="none"
+                  className={`navbar__dropdown-chevron ${
+                    dropdownOpen ? "rotate-180" : ""
+                  }`}
+                >
+                  <path
+                    d="M3 5l4 4 4-4"
+                    stroke="currentColor"
+                    strokeWidth="1.8"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                </svg>
+              </button>
+            </div>
 
             <ul
-              className={`navbar__dropdown-menu ${dropdownOpen ? "navbar__dropdown-menu--open" : ""}`}
+              className={`navbar__dropdown-menu ${
+                dropdownOpen ? "navbar__dropdown-menu--open" : ""
+              }`}
             >
               {services.map((service) => (
                 <li key={service.num}>
@@ -122,7 +139,6 @@ const Navbar = () => {
               ))}
             </ul>
           </li>
-
           <li>
             <NavLink
               to="/why_us"
@@ -189,7 +205,7 @@ const Navbar = () => {
           </button>
         </div>
 
-        <p className="mobile-menu__services-label">Our Business</p>
+        {/* <p className="mobile-menu__services-label">Our Business</p> */}
 
         <ul className="mobile-menu__services">
           {services.map((service) => (

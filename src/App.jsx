@@ -13,6 +13,7 @@ import Plywood from "./Pages/Plywood";
 import Soap from "./Pages/Soap";
 import CookingOil from "./Pages/CookingOil";
 import Packaging from "./Pages/Packaging";
+import Business from "./Pages/Business";
 
 const App = () => {
   return (
@@ -24,6 +25,7 @@ const App = () => {
 
           <Route path="/about" element={<About />} />
           <Route path="/why_us" element={<WhyUs />} />
+          <Route path="/business" element={<Business />} />
           <Route path="/careers" element={<Careers />} />
           <Route path="/career/apply" element={<CareerForm />} />
           <Route path="/contact" element={<Contact />} />
